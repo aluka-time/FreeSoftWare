@@ -3,7 +3,7 @@ spring:
     # 默认的类型
     active: dev
   application:
-    name: xxxxxxxxx-${spring.profiles.active}
+    name: ${spring.profiles.active}
   cloud:
     nacos:
       discovery:
