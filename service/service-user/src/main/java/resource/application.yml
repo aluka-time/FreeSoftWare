@@ -23,5 +23,4 @@ spring:
           - dataId: mail-config.yml
             group: GLOBAL_GROUP
             refresh: true
-# ${}这种方式优先取jvm参数，其次取文件内部定义的；以spring.profiles.active为例；
-# 注意name一定要和nacos上配置名一致；用这个匹配的
+
