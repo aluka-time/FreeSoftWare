@@ -1,0 +1,27 @@
+spring:
+  profiles:
+    # 默认的类型
+    active: dev
+  application:
+    name: xxxxxxxxx-${spring.profiles.active}
+  cloud:
+    nacos:
+      discovery:
+        # 指定nacos的命名空间
+        namespace: ${spring.cloud.nacos.config.namespace}
+      config:
+        file-extension: yaml
+        # nacos地址
+        server-addr: ${spring.cloud.nacos.server-addr}
+        namespace:  ${spring.cloud.nacos.discovery.namespace}
+        extension-configs:
+          # metrics config
+          - dataId: global-config.yml
+            group: GLOBAL_GROUP
+            refresh: true
+            # email config
+          - dataId: mail-config.yml
+            group: GLOBAL_GROUP
+            refresh: true
+# ${}这种方式优先取jvm参数，其次取文件内部定义的；以spring.profiles.active为例；
+# 注意name一定要和nacos上配置名一致；用这个匹配的
